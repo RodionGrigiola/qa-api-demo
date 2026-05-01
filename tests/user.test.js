@@ -1,6 +1,8 @@
 const request = require("supertest");
 const app = require("../app");
 
+console.log("DB:", process.env.DB_HOST, process.env.DB_PORT);
+
 test("should return user by email", async () => {
   const res = await request(app).post("/get-user-via-email").send({
     email: "admin@test.com",

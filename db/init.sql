@@ -4,7 +4,3 @@ CREATE TABLE IF NOT EXISTS users (
   password VARCHAR(255) NOT NULL,
   created_at TIMESTAMP DEFAULT NOW()
 );
-
-INSERT INTO users (email, password)
-VALUES ('admin@test.com', '123456')
-ON CONFLICT (email) DO NOTHING;

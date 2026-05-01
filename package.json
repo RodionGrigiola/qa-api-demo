@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "NODE_ENV=development nodemon server.js",
     "start": "node server.js",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest --runInBand",
+    "db:test:up": "docker compose up -d db_test",
+    "db:test:down": "docker compose down db_test",
+    "seed:dev": "NODE_ENV=development node db/seeds/dev.seed.js"
   },
   "keywords": [],
   "author": "",
