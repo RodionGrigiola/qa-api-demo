@@ -11,11 +11,6 @@ if (!process.env.DB_HOST) {
 const pool = require("../db/db");
 
 beforeEach(async () => {
-  await pool.query("SELECT COUNT(*) FROM users");
-});
-
-beforeEach(async () => {
-  // await pool.query("TRUNCATE users RESTART IDENTITY CASCADE");
   await pool.query("DELETE FROM users");
 
   await pool.query(`

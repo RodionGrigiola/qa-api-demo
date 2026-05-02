@@ -3,11 +3,11 @@ services:
     build: .
     container_name: qa-api-demo
 
-    ports:
-      - "${PORT}:${PORT}"
-
     env_file:
       - .env
+
+    ports:
+      - "${PORT}:${PORT}"
 
     environment:
       DB_HOST: db
@@ -23,7 +23,7 @@ services:
 
   db:
     image: postgres:17-alpine
-    container_name: qu-postgres
+    container_name: qa-postgres
 
     environment:
       POSTGRES_USER: postgres
@@ -37,21 +37,5 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
 
-  db_test:
-    image: postgres:17-alpine
-
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: qa_test_db
-
-    ports:
-      - "5433:5432"
-
-    volumes:
-      - test_data:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-
 volumes:
   postgres_data:
-  test_data:

@@ -6,9 +6,6 @@ services:
 
     container_name: qa-api-prod
 
-    ports:
-      - "${PORT}:${PORT}"
-
     env_file:
       - .env
 
@@ -34,6 +31,19 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  nginx:
+    image: nginx:alpine
+    container_name: qa-nginx
+
+    ports:
+      - "80:80"
+
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+    depends_on:
+      - api
 
 volumes:
   postgres_data:
