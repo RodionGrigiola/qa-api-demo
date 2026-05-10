@@ -4,7 +4,7 @@ const pool = require("./db/db");
 const app = express();
 
 app.use(express.json());
-console.log(test);
+console.log("test");
 
 app.get("/", (req, res) => {
   res.status(200).json({
