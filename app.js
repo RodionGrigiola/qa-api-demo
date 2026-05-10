@@ -8,7 +8,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).json({
     status: "ok",
-    message: "api is running again",
+    message: "api is running again and hello world!",
   });
 });
 
