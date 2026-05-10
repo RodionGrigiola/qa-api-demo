@@ -5,6 +5,7 @@ const app = express();
 
 app.use(express.json());
 console.log("test");
+console.log("test_2");
 
 app.get("/", (req, res) => {
   res.status(200).json({
