@@ -4,11 +4,13 @@ const pool = require("./db/db");
 const app = express();
 
 app.use(express.json());
+console.log("test");
+console.log("test3");
 
 app.get("/", (req, res) => {
   res.status(200).json({
     status: "ok",
-    message: "hello world!",
+    message: "hello world again!",
   });
 });
 
