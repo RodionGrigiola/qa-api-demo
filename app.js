@@ -8,7 +8,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).json({
     status: "ok",
-    message: "hello world!",
+    message: "hello world again!",
   });
 });
 
